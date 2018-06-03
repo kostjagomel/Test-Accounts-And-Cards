@@ -2,10 +2,15 @@ package test.accountsandcards.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import test.accountsandcards.R;
 import test.accountsandcards.buisness.model.Card;
@@ -41,8 +46,28 @@ public class PlaceholderFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_cards, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.cardTitleView);
-//        textView.setText(getString(R.string.section_format) + getArguments().getString(ARG_SECTION_NUMBER));
+//        textName.setText(getString(R.string.section_format) + getArguments().getString(ARG_SECTION_NUMBER));
         textView.setText(getArguments().getString(ARG_SECTION_NUMBER));
+
+
+        RecyclerView rvCards = (RecyclerView)rootView.findViewById(R.id.infos_view);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rvCards.setLayoutManager(llm);
+
+
+        RecyclerInfoAdapter.Info info = new RecyclerInfoAdapter.Info(getArguments().getString(ARG_SECTION_NUMBER),"ahahahhahahaha");
+        List<RecyclerInfoAdapter.Info> infos = new ArrayList<>();
+        infos.add(info);
+        infos.add(info);
+        infos.add(info);
+        infos.add(info);
+        infos.add(info);
+        infos.add(info);
+        infos.add(info);
+
+        RecyclerInfoAdapter recyclerInfoAdapter = new RecyclerInfoAdapter(infos);
+        rvCards.setAdapter(recyclerInfoAdapter);
+
         return rootView;
     }
 }
