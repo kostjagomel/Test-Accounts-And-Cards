@@ -30,7 +30,8 @@ public class PlaceholderFragment extends Fragment {
     public static PlaceholderFragment newInstance(int sectionNumber, Card card) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_SECTION_NUMBER, "" + sectionNumber + card);
+        args.putString(ARG_SECTION_NUMBER, card.getCardTitle());
+//        args.putString(ARG_SECTION_NUMBER, "" + sectionNumber + card);
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,8 +40,9 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_cards, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-        textView.setText(getString(R.string.section_format) + getArguments().getString(ARG_SECTION_NUMBER));
+        TextView textView = (TextView) rootView.findViewById(R.id.cardTitleView);
+//        textView.setText(getString(R.string.section_format) + getArguments().getString(ARG_SECTION_NUMBER));
+        textView.setText(getArguments().getString(ARG_SECTION_NUMBER));
         return rootView;
     }
 }
