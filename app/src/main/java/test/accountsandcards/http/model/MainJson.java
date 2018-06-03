@@ -12,4 +12,12 @@ import lombok.ToString;
 public class MainJson {
     ErrorInfo errorInfo;
     List<Card> cards;
+
+    public ErrorInfo getErrorInfo() {
+        return errorInfo;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
 }

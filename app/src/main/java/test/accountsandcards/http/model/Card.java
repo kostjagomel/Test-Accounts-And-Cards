@@ -13,4 +13,24 @@ public class Card {
     String cardCurrency;
     String cardAccountType;
     String accountNumber;
+
+    public String getCardTitle() {
+        return cardTitle;
+    }
+
+    public String getCardAmount() {
+        return cardAmount;
+    }
+
+    public String getCardCurrency() {
+        return cardCurrency;
+    }
+
+    public String getCardAccountType() {
+        return cardAccountType;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
 }
