@@ -5,6 +5,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import test.accountsandcards.MainActivity;
+import test.accountsandcards.R;
 import test.accountsandcards.buisness.model.Card;
 import test.accountsandcards.http.HttpHelper;
 
@@ -31,7 +32,7 @@ public class Logic {
 
             @Override
             public void showError() {
-                Toast.makeText(mainActivity,"Упс, что-то пошло не так",Toast.LENGTH_LONG);
+                Toast.makeText(mainActivity, R.string.connection_error,Toast.LENGTH_LONG);
             }
         });
     }
