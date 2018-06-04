@@ -23,10 +23,14 @@ public class PlaceholderFragment extends Fragment {
      * The fragment argument representing the section number for this
      * fragment.
      */
-    private static final String ARG_SECTION_NUMBER = "section_number";
+    private static final String CARD_TITLE = "CARD_TITLE";
+    private static final String AMOUNT = "AMOUNT";
+    private static final String NUMBER = "NUMBER";
+    private static final String ACCOUNT_TYPE = "ACCOUNT_TYPE";
 
     public PlaceholderFragment() {
     }
+
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -35,8 +39,10 @@ public class PlaceholderFragment extends Fragment {
     public static PlaceholderFragment newInstance(int sectionNumber, Card card) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_SECTION_NUMBER, card.getCardTitle());
-//        args.putString(ARG_SECTION_NUMBER, "" + sectionNumber + card);
+        args.putString(CARD_TITLE, card.getCardTitle());
+        args.putString(AMOUNT, card.getCardAmount() + card.getCardCurrency());
+        args.putString(NUMBER, card.getAccountNumber());
+        args.putString(ACCOUNT_TYPE, card.getCardAccountType());
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,22 +51,27 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_cards, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.cardTitleView);
-//        textName.setText(getString(R.string.section_format) + getArguments().getString(ARG_SECTION_NUMBER));
-        textView.setText(getArguments().getString(ARG_SECTION_NUMBER));
+        TextView cardTitleView = rootView.findViewById(R.id.card_title_view);
+        cardTitleView.setText(getArguments().getString(CARD_TITLE));
+
+        TextView textCardAmount = rootView.findViewById(R.id.text_card_amount);
+        textCardAmount.setText(getArguments().getString(AMOUNT));
+
+        TextView accountTypeView = rootView.findViewById(R.id.text_card_account_type);
+        accountTypeView.setText(getArguments().getString(ACCOUNT_TYPE));
 
 
-        RecyclerView rvCards = (RecyclerView)rootView.findViewById(R.id.infos_view);
+        RecyclerView rvCards = rootView.findViewById(R.id.infos_view);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvCards.setLayoutManager(llm);
 
 
-        RecyclerInfoAdapter.Info info = new RecyclerInfoAdapter.Info(getArguments().getString(ARG_SECTION_NUMBER),"ahahahhahahaha");
         List<RecyclerInfoAdapter.Info> infos = new ArrayList<>();
-        infos.add(info);
-        infos.add(info);
-        infos.add(info);
-        infos.add(info);
+        infos.add(new RecyclerInfoAdapter.Info(null,"ДЕТАЛИ СЧЕТА",0));
+        infos.add(new RecyclerInfoAdapter.Info("Название счета",getArguments().getString(CARD_TITLE),R.drawable.ic_info_edit));
+        infos.add(new RecyclerInfoAdapter.Info("Номер счета",getArguments().getString(NUMBER),R.drawable.ic_info_share));
+        infos.add(new RecyclerInfoAdapter.Info("Тип счета",getArguments().getString(ACCOUNT_TYPE),0));
+        infos.add(new RecyclerInfoAdapter.Info("Доступные средства",getArguments().getString(AMOUNT),0));
 
 
         RecyclerInfoAdapter recyclerInfoAdapter = new RecyclerInfoAdapter(infos);

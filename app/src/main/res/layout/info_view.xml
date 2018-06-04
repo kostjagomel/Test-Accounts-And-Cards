@@ -9,7 +9,7 @@
         android:id="@+id/info_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/appbar_padding_top"
+        android:layout_marginTop="@dimen/cardview_default_radius"
         android:background="@color/cardview_light_background"
         android:orientation="horizontal"
         android:padding="@dimen/appbar_padding_top">
@@ -19,16 +19,17 @@
             android:layout_height="match_parent"
             android:layout_weight="10"
             android:background="@color/cardview_light_background"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text_value"
+                android:id="@+id/text_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/text_name"
+                android:id="@+id/text_value"
                 style="@style/ValueText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

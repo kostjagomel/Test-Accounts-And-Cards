@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Accounts And Cards</string>
+    <string name="app_name">Счета и карточки</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section:</string>
 
