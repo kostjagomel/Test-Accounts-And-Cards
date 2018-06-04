@@ -4,8 +4,8 @@
     <string name="section_format">Hello World from section:</string>
 
     <string name="connection_error">Упс, что-то пошло не так</string>
-    <string name="text_share">Оплата</string>
-    <string name="text_statement">Перевод</string>
-    <string name="text_transfer_disable">Выписка</string>
-    <string name="text_pay_disable">Отправить</string>
+    <string name="text_share">Отправить</string>
+    <string name="text_statement">Выписка</string>
+    <string name="text_transfer_disable">Перевод</string>
+    <string name="text_pay_disable">Оплата</string>
 </resources>

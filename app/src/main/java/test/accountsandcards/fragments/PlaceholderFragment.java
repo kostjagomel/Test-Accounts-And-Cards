@@ -61,9 +61,7 @@ public class PlaceholderFragment extends Fragment {
         infos.add(info);
         infos.add(info);
         infos.add(info);
-        infos.add(info);
-        infos.add(info);
-        infos.add(info);
+
 
         RecyclerInfoAdapter recyclerInfoAdapter = new RecyclerInfoAdapter(infos);
         rvCards.setAdapter(recyclerInfoAdapter);
